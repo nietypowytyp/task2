@@ -41,7 +41,7 @@ public class Student {
     private void prePersist() {
         this.id = UUID.randomUUID().toString();
         this.createdAt = LocalDateTime.now();
-        logger.info("Created user {}", this); // Logs masked data
+        logger.info("Created user {}", this);
     }
 
     @PreUpdate
@@ -55,7 +55,7 @@ public class Student {
                 "id='" + id + '\'' +
                 ", name='" + LogMaskingUtil.maskField(name) + '\'' +
                 ", email='" + LogMaskingUtil.maskField(email) + '\'' +
-                ", birthday='" + LogMaskingUtil.maskBirthday(birthday) + '\'' + // Masked here
+                ", birthday='" + LogMaskingUtil.maskBirthday(birthday) + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 ", address=" + (address != null ? address.toString() : null) +
